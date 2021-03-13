@@ -1,0 +1,80 @@
+﻿@model List<MovieModel>
+
+
+@{
+    ViewBag.Title = "Movie List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+@*<a href="/Movies/Create"> New Movie</a>*@
+@*@Html.ActionLink("New Movie", "Create", "Movies")*@
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    @Html.ActionLink("New Movie", "Create")
+}
+
+@if (TempData["Message"] != null)
+{
+    <p class="text-secondary">
+        @TempData["Message"]
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Production Year
+        </th>
+        <th>
+            Box Office Return
+        </th>
+        <th>
+            Directors
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    @foreach (MovieModel movie in Model)
+    {
+        <tr>
+            <td>
+                @movie.Name
+            </td>
+            <td>
+                @movie.ProductionYear
+            </td>
+            <td>
+                @movie.BoxOfficeReturn
+            </td>
+            <td>
+                @*@foreach (DirectorModel director in movie.Directors)
+                    {
+                        @(director.Name + " " + director.Surname)
+                        <br />
+                    }*@
+                @{
+                    string directors = "";
+                    foreach (DirectorModel director in movie.Directors)
+                    {
+                        directors += director.Name + " " + director.Surname + "<br />";
+                    }
+                }
+                @Html.Raw(directors)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = movie.Id }) |
+                @Html.ActionLink("Edit", "Edit", new { id = movie.Id }) |
+                @*Html.ActionLink("Delete", "DeleteMovie", new { id = movie.Id })*@
+                @Html.ActionLink("Delete", "Delete", new { id = movie.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+
+

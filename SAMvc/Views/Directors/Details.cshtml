@@ -1,0 +1,18 @@
+﻿@model DirectorModel
+
+@{
+    ViewBag.Title = "Director Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Director</h4>
+    <hr />
+    @Html.Partial("_Details", Model)
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to Director List", "Index")
+</p>

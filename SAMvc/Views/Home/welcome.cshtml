@@ -1,0 +1,12 @@
+﻿@{ 
+    ViewBag.Title = "Welcome";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="jumbotron"><h1>Welcome @User.Identity.Name to Movies MVC!</h1></div>
+}
+else
+	{
+	         <div class="jumbotron"><h1>Welcome to Movies MVC!</h1></div>
+	}

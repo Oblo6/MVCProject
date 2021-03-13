@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "6bca7529-8388-4819-ba97-9031a2448fd5",
+		"name": "MoviesMvcBilgeadam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44371/MoviesReportAjax/Json",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"MoviesReportAjax",
+						"Json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

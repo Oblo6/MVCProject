@@ -1,0 +1,21 @@
+﻿@model MovieModel
+@{
+    ViewBag.Title = "Movie Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    @Html.Label("Movie Details")
+</h2>
+<hr />  
+    @Html.Partial("_Details", Model)
+<br />
+<div class="row">
+    <div class="col-12">
+        @*@Html.ActionLink("Movie List", "List")*@
+        @*<a href="@Url.Action("List", "Movies")">Movie List</a>*@
+        <a href="@Url.Action("List")">Movie List</a>
+    </div>
+</div>
+
+

@@ -1,0 +1,15 @@
+﻿div.paddingtop {
+    padding-top: 50px;
+}
+
+.divcheckboxpaddingtop {
+    padding-top: 7px;
+}
+
+.divradiopaddingtop {
+    padding-top: 7px;
+}
+
+.listbox {
+    height: 120px !important;
+}

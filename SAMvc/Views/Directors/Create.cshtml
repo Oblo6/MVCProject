@@ -1,0 +1,23 @@
+﻿@*@model SAMvc.Entities.Director*@
+@model DirectorModel
+@{
+    ViewBag.Title = "Create New Director";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.Partial("_CreateEdit", Model)
+
+<div>
+    @Html.ActionLink("Back to Director List", "Index")
+</div>
+
+@section scripts
+    {
+    @*<script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

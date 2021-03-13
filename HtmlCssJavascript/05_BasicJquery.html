@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Basic jQuery</title>
+    <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>-->
+    <script src="Scripts/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //alert("Documen loaded.");
+            console.log("Document loaded.");
+
+            $("button").click(function () {
+                $('p').hide();
+            });
+
+            $('#myaid').click(function (event) {
+                event.preventDefault();
+
+                $("#mylabelid").toggle(1000);
+            });
+
+            $('#btnSave').click(function () {
+                var adi = $("#txtAdi").val();
+                var soyadi = $("#txtSoyadi").val();
+                var no = $('#txtNo').val();
+                //if (adi.trim() === "" || soyadi.trim() === "" || no.trim() === "") {
+                //    $("#lblSaveResult").text("Öğrenci adı, soyadı ve numarası boş olamaz!");
+                //} else {
+                //    $("#lblSaveResult").text("Adı: " + adi + ", Soyadi: " + soyadi + ", No:" + no + " olan öğrenci kaydedildi.");
+                //}
+                var emptyFound = false;
+                $(".myinputclass").each(function () {
+                    if ($(this).val().trim() == "") {
+                        emptyFound = true;
+                    }
+                });
+                if (emptyFound) {
+                    $("#lblSaveResult").text("Öğrenci adı, soyadı ve numarası boş olamaz!");
+                    $("#lblSaveResult").css("color", "red");
+                }
+                else {
+                    $("#lblSaveResult").text("Adı: " + adi + ", Soyadi: " + soyadi + ", No:" + no + " olan öğrenci kaydedildi.");
+                    $("#lblSaveResult").css("color", "green").slideUp(1000).slideDown(1000);
+                }
+            });
+
+            $("#ddlSehir").change(function () {
+                if ($("#ddlSehir").val === "") {
+                    $("#lblDdlSehir").text("Şehir seçiniz!")
+                } else {
+                    $("#lblDdlSehir").text("Seçili değer: " + $("#ddlSehir").val());
+                }
+            });
+
+            $("#cbMutlu").prop("checked", true);
+            $("#sMutlu").text(":)");
+            $("#cbMutlu").change(function () {
+                if ($("#cbMutlu").prop("checked") == true) {
+                    $("#sMutlu").text(":)");
+                } else {
+                    $("#sMutlu").text(":(");
+                }
+            });
+
+            $("#rAnkaragucu").prop("checked", true);
+            $("#rBursaspor").prop("checked", false);
+            $("#rCincon").prop("checked", false);
+            $("input[name=rblTakimlar]").off("click");
+            $("input[name=rblTakimlar]").on("click", function () {
+                $("#lblRblTakimlar").text($("input[name=rblTakimlar]:checked").val());
+            });
+
+            $("#btnTemizle").click(function () {
+                $("#lbHayvanlar").find("option").prop("selected", false);
+                $("#sHayvanlar").text("");
+            });
+
+            $("#btnGetir").click(function () {
+                var seciliHayvanlar = seciliHayvanlariGetir();
+                $("#sHayvanlar").text(seciliHayvanlar);
+            });
+
+            $("#lbHayvanlar").change(function () {
+                var seciliHayvanlar = seciliHayvanlariGetir($(this));
+                $("#sHayvanlar").text(seciliHayvanlar);
+            });
+        });
+
+        function seciliHayvanlariGetir(listbox = null) {
+            var hayvanlar = "";
+            var secilenHayvanlar;
+            if (listbox == null) {
+                secilenHayvanlar = $("#lbHayvanlar").val();
+            } else {
+                secilenHayvanlar = listbox.val();
+            }
+            if (secilenHayvanlar.length > 0) {
+                for (var i = 0; i < secilenHayvanlar.length; i++) {
+                    hayvanlar += secilenHayvanlar[i] + ", ";
+                }
+                hayvanlar = hayvanlar.substr(0, hayvanlar.length - 2);
+            }
+            return hayvanlar;
+        }
+    </script>
+</head>
+<body>
+    <p>jQuery</p>
+    <button>Hide jQuery</button>
+    <hr />
+    <label id="mylabelid">Hafta sonu daiiii!</label>
+    <br />
+    <a id="myaid" href="">Yukaridaki yaziyi goster / gizle</a>
+    <!--<a id="myaid" href="#">Yukarıdaki yaziyi goster / gizle</a>-->
+    <hr />
+    <table border="1">
+        <tr>
+            <td>
+                Öğrenci Adı:
+            </td>
+            <td>
+                <input type="text" id="txtAdi" class="myinputclass" width="250" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Öğrenci Soyadı:
+            </td>
+            <td>
+                <input type="text" id="txtSoyadi" class="myinputclass" width="250" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Öğrenci No:
+            </td>
+            <td>
+                <input type="text" id="txtNo" class="myinputclass" width="250" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" id="btnSave" value="Kaydet" />
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2">
+                <label id="lblSaveResult"></label>
+            </td>
+
+        </tr>
+    </table>
+    <hr />
+    <select id="ddlSehir">
+        <option value="" selected>---Seçiniz---</option>
+        <option value="6">Ankara</option>
+        <option value="34">İstanbul</option>
+        <option value="35">İzmir</option>
+    </select>
+    <br />
+    <label id="lblDdlSehir"></label>
+    <hr />
+    <input type="checkbox" id="cbMutlu" /> Mutlu musun?
+    <br />
+    <span id="sMutlu"></span>
+    <br />
+    <input type="radio" id="rAnkaragucu" name="rblTakimlar" value="1910" /> Ankaragücü
+    &nbsp;
+    <input type="radio" id="rBursaspor" name="rblTakimlar" value="1963" /> Bursaspor
+    &nbsp;
+    <input type="radio" id="rCincon" name="rblTakimlar" value="1905" /> Cincon
+    <br />
+    <label id="lblRblTakimlar"></label>
+    <br />
+    <select id="lbHayvanlar" multiple>
+        <option value="dog">Köpek</option>
+        <option value="cat">Kedi</option>
+        <option value="bird">Kuş</option>
+    </select>
+    <br />
+    <input type="button" id="btnTemizle" value="Seçili hayvanları temizle" />
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" id="btnGetir" value="Seçili hayvanları getir" />
+    <br />
+    <span id="sHayvanlar"></span>
+    <hr />
+    <script src="05_BasicJquery.js"></script>
+    <input type="text" id="txtInput1" placeholder="Enter a text to set below..." />
+    <br />
+    <input type="button" id="btnSetText" value="Set Text" />&nbsp;
+    <input type="button" id="btnSetHtml" value="Set Html" />&nbsp;
+    <input type="button" id="btnSetValue" value="Set Value" />&nbsp;
+    <br />
+    <span id="sOutput1"></span>
+    <br />
+    <span id="sOutput2"></span>
+    <br />
+    <input type="text" id="txtOutput1" value=""/>
+</body>
+</html>

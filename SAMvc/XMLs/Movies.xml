@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MovieModels>
+  <MovieModel>
+    <Id>1</Id>
+    <Name>Avatar</Name>
+    <ProducitonYear>2009</ProducitonYear>
+    <BoxOfficeReturn>1000000</BoxOfficeReturn>
+    <DirectorModel>
+      <DirectorModel>
+        <Id>1</Id>
+        <Name>James</Name>
+        <Surname>Cameron</Surname>
+        <Retired>false</Retired>
+      </DirectorModel>
+    </DirectorModel>
+    <ReviewModels>
+      <Review>
+        <Id>1</Id>
+        <Content>Very good movie</Content>
+        <Rating>9</Rating>
+        <Reviewer>Hasan Sağlam</Reviewer>
+        <MovieId>1</MovieId>
+      </Review>
+    </ReviewModels>
+  </MovieModel>
+  <MovieModel>
+    <Id>2</Id>
+    <Name>Sherlock Holmes</Name>
+    <ProducitonYear>2009</ProducitonYear>
+    <BoxOfficeReturn></BoxOfficeReturn>
+    <DirectorModel>
+      <DirectorModel>
+        <Id>2</Id>
+        <Name>Guy</Name>
+        <Surname>Ritchie</Surname>
+        <Retired>false</Retired>
+      </DirectorModel>
+    </DirectorModel>    
+  </MovieModel>
+  <MovieModel>
+    <Id>3</Id>
+    <Name>Law abading Citizen</Name>
+    <ProducitonYear>2009</ProducitonYear>
+    <BoxOfficeReturn>300000</BoxOfficeReturn>
+    <DirectorModel>
+      <DirectorModel>
+        <Id>3</Id>
+        <Name>F. Gary</Name>
+        <Surname>Gray</Surname>
+        <Retired>false</Retired>
+      </DirectorModel>
+    </DirectorModel>
+  </MovieModel>
+  <MovieModel>
+    <Id>4</Id>
+    <Name>Aliens</Name>
+    <ProducitonYear>1986</ProducitonYear>
+    <BoxOfficeReturn>10000000</BoxOfficeReturn>
+    <DirectorModel>
+      <DirectorModel>
+        <Id>1</Id>
+        <Name>James</Name>
+        <Surname>Cameron</Surname>
+        <Retired>false</Retired>
+      </DirectorModel>
+    </DirectorModel>
+  </MovieModel>
+</MovieModels>
